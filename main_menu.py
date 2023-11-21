@@ -1,5 +1,5 @@
 import os
-
+import shutil
 
 # ************ФУНКЦИИ************
 def sim_multi(sim, value): # функция символы
@@ -15,6 +15,15 @@ def add_folder(): # создать каталог
         print(f'Папка "{name_fold}" успешно создана.')
         main_menu_explorer()
         return os.mkdir(name_fold)
+
+# def del_file(): # удалить файл
+#     name_file = input('Введите имя файла для удаления: ')
+#     while os.path.isfile(name_file) != True:
+#         os.remove(name_file)
+#     else:
+#         print('Файл не найден!')
+#         return del_file()
+
 
 def main_menu_explorer():
     print("\033[3m\033[33m\033[41m{}\033[0m".format("Файловый менеджер вер. 1.0"))
@@ -33,4 +42,5 @@ def main_menu_explorer():
     print('12. Выход')
     sim_multi('#', 50)
 
-add_folder()
+print(os.path.isfile('222.py'))
+print(os.path.isdir('222'))
