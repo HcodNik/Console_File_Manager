@@ -1,6 +1,5 @@
 import platform, os
-import menu_module
-from menu_module import main_menu_explorer
+from manager_module.menu_module import main_menu_explorer
 
 
 def sys_info(): # информация о системе
