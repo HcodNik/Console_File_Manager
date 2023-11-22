@@ -21,8 +21,8 @@ def main_menu_explorer():
     sim_multi('#', 50)
 
 
-
-
+if __name__ == '__main__':
+    pass
 
 
 

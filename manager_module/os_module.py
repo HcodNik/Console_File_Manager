@@ -32,3 +32,6 @@ def add_folder(): # создать каталог
         print(f'Папка "{name_fold}" успешно создана.')
         return os.mkdir(name_fold)
     main_menu_explorer()
+
+    if __name__ == '__main__':
+        pass
