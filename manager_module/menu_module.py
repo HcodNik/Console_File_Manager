@@ -1,3 +1,6 @@
+import os
+
+
 
 def sim_multi(sim, value): # функция символы
     sim_multi = sim * value
