@@ -41,4 +41,3 @@ from del_mod import *
 #     print("You do not have permissions to change to {0}".format(current_dir))
 #
 print(f'Новый путь: {os.getcwd()}')
-del_file_folder()
