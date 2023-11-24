@@ -1,4 +1,5 @@
 import os
+import shutil
 from file_manager.menu_mod import main_menu_explorer
 from file_manager.os_mod import current_dir, view_file_only, view_folder_only
 
@@ -12,12 +13,12 @@ def del_file_only(name_f):  # удалить только файл
 def del_folder_only(name_f):  # удалить только папку
     if name_f in view_folder_only():
         print(f'Папка "{name_f}" успешно удалена.')
-        return os.rmdir(name_f)
+        return shutil.rmtree(name_f)
 
 
 def del_file_folder():  # удалить файл/папку
     name_f = input('Введите имя файла/каталога для удаления: ')
-    str = current_dir + '\\' + name_f
+    str = os.path.join(current_dir, name_f)  # current_dir + '\\' + name_f
     if os.path.isfile(str):
         del_file_only(name_f)
     elif os.path.isdir(str):
