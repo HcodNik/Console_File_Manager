@@ -1,6 +1,6 @@
 import os
-from manager_module.menu_module import main_menu_explorer
-from manager_module.os_module import current_dir, view_file_only, view_folder_only
+from file_manager.menu_mod import main_menu_explorer
+from file_manager.os_mod import current_dir, view_file_only, view_folder_only
 
 
 def del_file_only(name_f):  # удалить только файл
@@ -25,3 +25,7 @@ def del_file_folder():  # удалить файл/папку
     else:
         print(f'Файла/папки с именем "{name_f}" не найдено!')
     main_menu_explorer()
+
+
+if __name__ == '__main__':
+    pass
