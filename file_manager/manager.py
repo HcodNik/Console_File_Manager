@@ -24,20 +24,21 @@ from del_mod import *
 # print(current_dir)
 
 
-print(os_mod.__name__)
-
+# print(os_mod.__name__)
+#
 # print(f'Старый путь: {os.getcwd()}')
 #
-# path = r'C:\Users\Admin\PycharmProjects\Console_File_Manager\file_manager\111'
+# current_dir = r'C:\Users\Admin\PycharmProjects\Console_File_Manager\file_manager\111'
 #
 # try:
-#     os.chdir(path)
+#     os.chdir(current_dir)
 #     print("Current working directory: {0}".format(os.getcwd()))
 # except FileNotFoundError:
-#     print("Directory: {0} does not exist".format(path))
+#     print("Directory: {0} does not exist".format(current_dir))
 # except NotADirectoryError:
-#     print("{0} is not a directory".format(path))
+#     print("{0} is not a directory".format(current_dir))
 # except PermissionError:
-#     print("You do not have permissions to change to {0}".format(path))
+#     print("You do not have permissions to change to {0}".format(current_dir))
 #
-# print(f'Новый путь: {os.getcwd()}')
+print(f'Новый путь: {os.getcwd()}')
+del_file_folder()
