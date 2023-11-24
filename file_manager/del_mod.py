@@ -18,7 +18,7 @@ def del_folder_only(name_f):  # удалить только папку
 
 def del_file_folder():  # удалить файл/папку
     name_f = input('Введите имя файла/каталога для удаления: ')
-    str = os.path.join(current_dir, name_f)  # current_dir + '\\' + name_f
+    str = os.path.join(current_dir, name_f)  # current_dir + '\\' + name_f ... <-- неправильная запись
     if os.path.isfile(str):
         del_file_only(name_f)
     elif os.path.isdir(str):
