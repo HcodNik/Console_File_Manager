@@ -39,5 +39,6 @@ from del_mod import *
 #     print("{0} is not a directory".format(current_dir))
 # except PermissionError:
 #     print("You do not have permissions to change to {0}".format(current_dir))
-#
-print(f'Новый путь: {os.getcwd()}')
+# os.chdir(os.path.join(os.getcwd(),'111'))
+print(os.getcwd())
+# print(f'Новый путь: {os.getcwd()}')

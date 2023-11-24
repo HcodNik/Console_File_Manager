@@ -8,18 +8,19 @@ current_dir = os.getcwd() # ГЛОБАЛЬНАЯ...текущий каталог
 
 
 def ch_dir(): # смена рабочей директории
+    global current_dir
     print(f'Текущая директория: {current_dir}')
-    new_current_dir = input(r'Укажите новую директорию: ')
-
+    current_dir = input(r'Укажите новую директорию: ')
     try:
-        os.chdir(new_current_dir)
-        print(f'Рабочая директорию изменена на {new_current_dir}')
+        os.chdir(os.path.join(os.getcwd(), current_dir))
+        print(f'Рабочая директория изменена на {current_dir}')
     except:
         print(f'Произошла ошибка {sys.exc_info()}')
-    finally:
         print('Восстанавливаем рабочую директорию на прежнюю')
-        print(f'Текущая рабочая директория - {current_dir}')
-
+    finally:
+        # print('Восстанавливаем рабочую директорию на прежнюю')
+        print(f'Текущая рабочая директория - {os.getcwd()}')
+    main_menu_explorer()
 
 def add_folder(): # создать каталог в тек. директории
     name_fold = input('Введите имя каталога: ')
