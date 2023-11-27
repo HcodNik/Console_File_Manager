@@ -2,7 +2,7 @@ import os
 from file_manager.os_mod import *
 from file_manager.author_mod import author
 from file_manager.sysinfo_mod import sys_info
-from bank_account.score import *
+from bank_account.score import score_func
 
 
 def sim_multi(sim, value):  # функция символы
