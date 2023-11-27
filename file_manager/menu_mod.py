@@ -60,6 +60,7 @@ def main_menu_input():
         pass
     elif menu_num == '10':
         score_func()
+        main_menu_input()
     elif menu_num == '11':
         ch_dir()
         main_menu_input()

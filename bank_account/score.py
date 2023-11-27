@@ -1,5 +1,5 @@
 from datetime import date
-from file_manager.manager import *
+
 
 wallet = 5000.0
 shopping_book = []
@@ -68,8 +68,6 @@ def score_func():  # главное меню
                 print(f'{shopping_book[i][0]}...............{shopping_book[i][2]}...............{shopping_book[i][1]}')
             score_func()
         elif choice == '4':
-            main_menu_print()
-            main_menu_input()
             break
         else:
             print('Неверный пункт меню')

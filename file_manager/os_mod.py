@@ -1,8 +1,7 @@
-import platform
 import sys
 import os
 import shutil
-from file_manager.menu_mod import *
+
 
 menu_num = ''  # ГЛОБАЛЬНАЯ...текущий каталог
 
