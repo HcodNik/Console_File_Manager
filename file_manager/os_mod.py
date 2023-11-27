@@ -1,24 +1,28 @@
 import platform
 import sys
 import os
-import shutil
-from file_manager.menu_mod import main_menu_input
-
-menu_num = ''  # Глобальная
+from file_manager.menu_mod import *
 
 
-def ch_dir():  # смена рабочей директории
-    print(f'Текущая директория: {os.getcwd()}')
-    new_current_dir = input(r'Укажите новую директорию: ')
+current_dir = os.getcwd() # ГЛОБАЛЬНАЯ...текущий каталог
 
+
+def ch_dir(): # смена рабочей директории
+    global current_dir
+    print(f'Текущая директория: {current_dir}')
+    current_dir = input(r'Укажите новую директорию: ')
     try:
-        print(f'Рабочая директорию изменена на {new_current_dir}')
-        return os.chdir(new_current_dir)
+        os.chdir(os.path.join(os.getcwd(), current_dir))
+        print(f'Рабочая директория изменена на {current_dir}')
     except:
-        return print(f'Произошла ошибка {sys.exc_info()}')
+        print(f'Произошла ошибка {sys.exc_info()}')
+        print('Восстанавливаем рабочую директорию на прежнюю')
+    finally:
+        # print('Восстанавливаем рабочую директорию на прежнюю')
+        print(f'Текущая рабочая директория - {os.getcwd()}')
+    main_menu_explorer()
 
-
-def add_folder():  # создать каталог в тек. директории
+def add_folder(): # создать каталог в тек. директории
     name_fold = input('Введите имя каталога: ')
     all_folder = view_folder_only()
     while name_fold in all_folder:
@@ -26,73 +30,51 @@ def add_folder():  # создать каталог в тек. директори
         break
     else:
         print(f'Папка "{name_fold}" успешно создана!')
-        return os.mkdir(name_fold)
+        os.mkdir(name_fold)
+    main_menu_explorer()
 
 
-def view_file_only():  # посмотреть ТОЛЬКО файлы текущей директории
-    cwd = os.listdir(os.getcwd())  # вывести список всех файлов и каталогов тек. директории
+def view_file_only(): # посмотреть ТОЛЬКО файлы текущей директории
+    global current_dir
+    cwd = os.listdir(current_dir) # вывести список всех файлов и каталогов тек. директории
     dir_file = []
     for item in cwd:
         if os.path.isfile(item) == True:
             dir_file.append(item)
     return dir_file
-    # return print(f'Список файлов текущей директории:{os.getcwd()}\n{'\n'.join(dir_file)}')
+    #return print(f'Список файлов текущей директории:{os.getcwd()}\n{'\n'.join(dir_file)}')
 
-
-def view_folder_only():  # посмотреть ТОЛЬКО папки текущей директории
-    cwd = os.listdir(os.getcwd())  # вывести список всех файлов и каталогов тек. директории
+def view_folder_only(): # посмотреть ТОЛЬКО папки текущей директории
+    global current_dir
+    cwd = os.listdir(current_dir) # вывести список всех файлов и каталогов тек. директории
     dir_fold = []
     for item in cwd:
         if os.path.isdir(item) == True:
             dir_fold.append(item)
     return dir_fold
-    # return print(f'Список папок текущей директории:{os.getcwd()}\n{'\n'.join(dir_fold)}')
+    #return print(f'Список папок текущей директории:{os.getcwd()}\n{'\n'.join(dir_fold)}')
+
+def list_dir(): # просмотр содержимого рабочей директории
+    return os.listdir(current_dir)
 
 
-def list_dir():  # просмотр содержимого рабочей директории
-    return os.listdir(os.getcwd())
+# КОПИРОВАТЬ ФАЙЛ/ПАПКУ
+# def copy_file_folder:
+#     copy_item = input('Укажите имя файла/папки текущей директории для создания копии: ')
+#     while copy_item is not list_dir():
+#         print('Файла/папки с таким именем не найдено!')
+#         break
+#     else:
+#         if os.path.isfile(copy_item):
 
 
-def del_file_only(name_f):  # удалить только файл
-    if name_f in view_file_only():
-        print(f'Файл "{name_f}" успешно удалён.')
-        return os.remove(name_f)
 
 
-def del_folder_only(name_f):  # удалить только папку
-    if name_f in view_folder_only():
-        print(f'Папка "{name_f}" успешно удалена.')
-        return shutil.rmtree(name_f)
-
-
-def del_file_folder():  # удалить файл/папку
-    name_f = input('Введите имя файла/каталога для удаления: ')
-    str = os.path.join(os.getcwd(), name_f)  # current_dir + '\\' + name_f ... <-- неправильная запись
-    if os.path.isfile(str):
-        return del_file_only(name_f)
-    elif os.path.isdir(str):
-        return del_folder_only(name_f)
-    else:
-        return print(f'Файла/папки с именем "{name_f}" не найдено!')
-
-
-def copy_():  # КОПИРОВАТЬ ФАЙЛ/ПАПКУ
-    copy_source = input('Укажите имя файла/папки текущей директории для создания копии: ')
-    str = os.path.join(os.getcwd(), copy_source)  # current_dir + '\\' + name_f ... <-- неправильная запись
-    if os.path.isfile(str):
-        copy_dest = input('Укажите новое имя файла: ')
-        print(f'Успешная копия в "{copy_dest}"')
-        return shutil.copy2(str, os.path.join(os.getcwd(), copy_dest))
-    elif os.path.isdir(str):
-        copy_dest = input('Укажите новое имя папки: ')
-        print(f'Успешная копия в "{copy_dest}"')
-        return shutil.copytree(str, copy_dest)
-    else:
-        return print(f'Файла/папки с именем "{copy_source}" не найдено!')
 
 
 if __name__ == '__main__':
     print(__name__)
+
 
     # print(os.getcwd())  # метод сообщает нам местоположение текущего рабочего каталога (CWD - Current working directory)
     # print(os.listdir(os.getcwd()))  # список всех файлов и каталогов в указанном каталоге, по умолчанию это текущий каталог
