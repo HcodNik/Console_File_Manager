@@ -8,7 +8,3 @@ def sys_info():  # информация о системе
     print(f"Имя устройства: {os_info.node}")
     print(f"Архитектура: {','.join(platform.architecture())}")
     print(f"Процессор: {platform.processor()}")
-
-
-if __name__ == '__main__':
-    pass
