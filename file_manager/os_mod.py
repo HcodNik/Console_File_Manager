@@ -1,9 +1,14 @@
 import platform
 import sys
 import os
+import shutil
 from file_manager.menu_mod import *
 
-current_dir = os.getcwd()  # ГЛОБАЛЬНАЯ...текущий каталог
+menu_num = ''  # ГЛОБАЛЬНАЯ...текущий каталог
+
+
+def list_dir():  # просмотр содержимого рабочей директории списком
+    return os.listdir(os.getcwd())
 
 
 def ch_dir():  # смена рабочей директории
@@ -11,15 +16,14 @@ def ch_dir():  # смена рабочей директории
     current_dir = input(r'Укажите новую директорию: ')
     try:
         current_dir = os.chdir(os.path.join(os.getcwd(), current_dir))
-        print(f'Рабочая директория изменена на {current_dir}')
+        print(f'Рабочая директория изменена на {os.getcwd()}')
     except:
         print(f'Произошла ошибка {sys.exc_info()}')
 
 
 def add_folder():  # создать каталог в тек. директории
     name_fold = input('Введите имя каталога: ')
-    all_folder = view_folder_only()
-    while name_fold in all_folder:
+    while name_fold in view_folder_only():
         print('Папка с таким именем уже существует!')
         break
     else:
@@ -28,33 +32,26 @@ def add_folder():  # создать каталог в тек. директори
 
 
 def view_file_only():  # посмотреть ТОЛЬКО файлы текущей директории
-    global current_dir
-    cwd = os.listdir(current_dir)  # вывести список всех файлов и каталогов тек. директории
+    cwd = list_dir()  # вывести список всех файлов и каталогов тек. директории
     dir_file = []
-    for item in cwd:
-        if os.path.isfile(item) == True:
-            dir_file.append(item)
+    for _ in cwd:
+        if os.path.isfile(_) == True:
+            dir_file.append(_)
     return dir_file
     # return print(f'Список файлов текущей директории:{os.getcwd()}\n{'\n'.join(dir_file)}')
 
 
 def view_folder_only():  # посмотреть ТОЛЬКО папки текущей директории
-    global current_dir
-    cwd = os.listdir(current_dir)  # вывести список всех файлов и каталогов тек. директории
+    cwd = list_dir()
     dir_fold = []
-    for item in cwd:
-        if os.path.isdir(item) == True:
-            dir_fold.append(item)
+    for _ in cwd:
+        if os.path.isdir(_) == True:
+            dir_fold.append(_)
     return dir_fold
     # return print(f'Список папок текущей директории:{os.getcwd()}\n{'\n'.join(dir_fold)}')
 
 
-def list_dir():  # просмотр содержимого рабочей директории
-    return os.listdir(current_dir)
-
-
-# КОПИРОВАТЬ ФАЙЛ/ПАПКУ
-# def copy_file_folder:
+# def copy_file_folder():  # КОПИРОВАТЬ ФАЙЛ/ПАПКУ
 #     copy_item = input('Укажите имя файла/папки текущей директории для создания копии: ')
 #     while copy_item is not list_dir():
 #         print('Файла/папки с таким именем не найдено!')
@@ -64,7 +61,7 @@ def list_dir():  # просмотр содержимого рабочей дир
 
 
 if __name__ == '__main__':
-    print(__name__)
+    pass
 
     # print(os.getcwd())  # метод сообщает нам местоположение текущего рабочего каталога (CWD - Current working directory)
     # print(os.listdir(os.getcwd()))  # список всех файлов и каталогов в указанном каталоге, по умолчанию это текущий каталог

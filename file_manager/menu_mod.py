@@ -34,10 +34,10 @@ def main_menu_input():
         add_folder()
         main_menu_input()
     elif menu_num == '2':
-        del_file_folder()
+        #del_file_folder()
         main_menu_input()
     elif menu_num == '3':
-        copy_()
+        #copy_()
         main_menu_input()
     elif menu_num == '4':
         print(',\n'.join(list_dir()))
