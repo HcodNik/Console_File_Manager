@@ -1,6 +1,8 @@
+import os
+from file_manager.os_mod import *
 from file_manager.author_mod import author
 from file_manager.sysinfo_mod import sys_info
-from file_manager.os_mod import *
+from bank_account.score import *
 
 
 def sim_multi(sim, value):  # функция символы
@@ -57,7 +59,7 @@ def main_menu_input():
     elif menu_num == '9':
         pass
     elif menu_num == '10':
-        pass
+        score_func()
     elif menu_num == '11':
         ch_dir()
         main_menu_input()
