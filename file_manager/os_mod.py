@@ -51,13 +51,29 @@ def view_folder_only():  # посмотреть ТОЛЬКО папки теку
     # return print(f'Список папок текущей директории:{os.getcwd()}\n{'\n'.join(dir_fold)}')
 
 
-# def copy_file_folder():  # КОПИРОВАТЬ ФАЙЛ/ПАПКУ
-#     copy_item = input('Укажите имя файла/папки текущей директории для создания копии: ')
-#     while copy_item is not list_dir():
-#         print('Файла/папки с таким именем не найдено!')
-#         break
-#     else:
-#         if os.path.isfile(copy_item):
+def copy_():  # КОПИРОВАТЬ ФАЙЛ/ПАПКУ
+    name = input('Укажите имя файла/папки текущей директории для создания копии: ')
+    if name in list_dir():
+        if os.path.isfile(os.path.join(os.getcwd(), name)):
+            new_name = input('Укажите новое имя файла: ')
+            while new_name in view_file_only():
+                print(f'Файл с именем "{new_name}" уже существует!')
+                return copy_()
+                break
+            print(f'Копия "{new_name}" создана."')
+            return shutil.copy2(name, new_name)
+        if os.path.isdir(os.path.join(os.getcwd(), name)):
+            new_name = input('Укажите новое имя папки: ')
+            while new_name in view_folder_only():
+                print(f'Папка с именем "{new_name}" уже существует!')
+                return copy_()
+                break
+            print(f'Копия "{new_name}" создана.')
+            return shutil.copytree(name, new_name)
+    else:
+        return print('Файл/папка с таким именем не найдена!')
+
+
 
 
 if __name__ == '__main__':
