@@ -48,5 +48,3 @@ def quiz():
     print(f'Правильных ответов: {catch0} ({int(catch0 * 100 / 5)}%)')
     print(f'Неправильных ответов: {catch1} ({int(catch1 * 100 / 5)}%)')
     file_manager.menu_mod.main_menu_input()
-
-

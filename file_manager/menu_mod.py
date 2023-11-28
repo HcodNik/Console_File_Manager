@@ -4,6 +4,7 @@ from file_manager.sysinfo_mod import sys_info
 import bank_account.score
 import quiz.quiz
 
+
 def sim_multi(sim, value):  # функция символы
     sim_multi = sim * value
     return print(sim_multi)

@@ -2,7 +2,6 @@ import sys
 import os
 import shutil
 
-
 menu_num = ''  # ГЛОБАЛЬНАЯ...текущий каталог
 
 
@@ -49,6 +48,7 @@ def view_folder_only():  # посмотреть ТОЛЬКО папки теку
     return dir_fold
     # return print(f'Список папок текущей директории:{os.getcwd()}\n{'\n'.join(dir_fold)}')
 
+
 def del_():
     del_name = input('Введите имя файла/папки текущей директории для удаления: ')
     if del_name in view_file_only():
@@ -59,27 +59,6 @@ def del_():
         return shutil.rmtree(os.path.join(os.getcwd(), del_name))
     else:
         print(f'Файл/каталог с именем "{del_name}" не найден')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def copy_():  # КОПИРОВАТЬ ФАЙЛ/ПАПКУ
@@ -103,8 +82,6 @@ def copy_():  # КОПИРОВАТЬ ФАЙЛ/ПАПКУ
             return shutil.copytree(name, new_name)
     else:
         return print('Файл/папка с таким именем не найдена!')
-
-
 
 
 if __name__ == '__main__':
