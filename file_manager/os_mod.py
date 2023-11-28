@@ -49,6 +49,38 @@ def view_folder_only():  # посмотреть ТОЛЬКО папки теку
     return dir_fold
     # return print(f'Список папок текущей директории:{os.getcwd()}\n{'\n'.join(dir_fold)}')
 
+def del_():
+    del_name = input('Введите имя файла/папки текущей директории для удаления: ')
+    if del_name in view_file_only():
+        print(f'Файл "{del_name}" успешно удалён')
+        return os.remove(os.path.join(os.getcwd(), del_name))
+    elif del_name in view_folder_only():
+        print(f'Каталог "{del_name}" успешно удалён')
+        return shutil.rmtree(os.path.join(os.getcwd(), del_name))
+    else:
+        print(f'Файл/каталог с именем "{del_name}" не найден')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def copy_():  # КОПИРОВАТЬ ФАЙЛ/ПАПКУ
     name = input('Укажите имя файла/папки текущей директории для создания копии: ')

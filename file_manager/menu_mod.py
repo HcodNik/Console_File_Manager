@@ -1,8 +1,7 @@
-import os
 from file_manager.os_mod import *
 from file_manager.author_mod import author
 from file_manager.sysinfo_mod import sys_info
-from bank_account.score import score_func
+import bank_account.score
 
 
 def sim_multi(sim, value):  # функция символы
@@ -34,44 +33,35 @@ def main_menu_input():
     menu_num = input(f'\n{os.getcwd()}> ')
     if menu_num == '1':
         add_folder()
-        main_menu_input()
     elif menu_num == '2':
-        # del_file_folder()
-        main_menu_input()
+        del_()
     elif menu_num == '3':
         copy_()
-        main_menu_input()
     elif menu_num == '4':
         print(',\n'.join(list_dir()))
-        main_menu_input()
     elif menu_num == '5':
         print(',\n'.join(view_folder_only()))
-        main_menu_input()
     elif menu_num == '6':
         print(',\n'.join(view_file_only()))
-        main_menu_input()
     elif menu_num == '7':
         sys_info()
-        main_menu_input()
     elif menu_num == '8':
         author()
-        main_menu_input()
     elif menu_num == '9':
         pass
     elif menu_num == '10':
-        score_func()
-        main_menu_input()
+        bank_account.score.score_func()
     elif menu_num == '11':
         ch_dir()
-        main_menu_input()
     elif menu_num == '12':
         main_menu_print()
-        main_menu_input()
     elif menu_num == '13':
         exit()
     else:
         print('Пункт меню указан неверно!')
-        return main_menu_input()
+        main_menu_print()
+    main_menu_input()
+
 
 
 if __name__ == '__main__':
