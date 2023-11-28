@@ -2,7 +2,7 @@ from file_manager.os_mod import *
 from file_manager.author_mod import author
 from file_manager.sysinfo_mod import sys_info
 import bank_account.score
-
+import quiz.quiz
 
 def sim_multi(sim, value):  # функция символы
     sim_multi = sim * value
@@ -48,7 +48,7 @@ def main_menu_input():
     elif menu_num == '8':
         author()
     elif menu_num == '9':
-        pass
+        quiz.quiz.quiz()
     elif menu_num == '10':
         bank_account.score.score_func()
     elif menu_num == '11':
@@ -61,7 +61,6 @@ def main_menu_input():
         print('Пункт меню указан неверно!')
         main_menu_print()
     main_menu_input()
-
 
 
 if __name__ == '__main__':

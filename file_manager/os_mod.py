@@ -14,7 +14,7 @@ def ch_dir():  # смена рабочей директории
     print(f'Текущая директория: {os.getcwd()}')
     current_dir = input(r'Укажите новую директорию: ')
     try:
-        current_dir = os.chdir(os.path.join(os.getcwd(), current_dir))
+        os.chdir(os.path.join(os.getcwd(), current_dir))
         print(f'Рабочая директория изменена на {os.getcwd()}')
     except:
         print(f'Произошла ошибка {sys.exc_info()}')
