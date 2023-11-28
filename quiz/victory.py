@@ -2,7 +2,7 @@ import random
 import file_manager.menu_mod
 
 
-def quiz():
+def victory():
     birtday = {
         'Александр Пушкин': '06.06.1799',
         'Альберт Эйнштейн': '14.03.1879',
@@ -47,4 +47,6 @@ def quiz():
 
     print(f'Правильных ответов: {catch0} ({int(catch0 * 100 / 5)}%)')
     print(f'Неправильных ответов: {catch1} ({int(catch1 * 100 / 5)}%)')
-    file_manager.menu_mod.main_menu_input()
+    return file_manager.menu_mod.main_menu_input()
+
+

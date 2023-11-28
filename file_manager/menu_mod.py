@@ -1,8 +1,9 @@
 from file_manager.os_mod import *
 from file_manager.author_mod import author
 from file_manager.sysinfo_mod import sys_info
+import quiz.victory
 import bank_account.score
-import quiz.quiz
+
 
 
 def sim_multi(sim, value):  # функция символы
@@ -49,7 +50,7 @@ def main_menu_input():
     elif menu_num == '8':
         author()
     elif menu_num == '9':
-        quiz.quiz.quiz()
+        quiz.victory.victory()
     elif menu_num == '10':
         bank_account.score.score_func()
     elif menu_num == '11':
@@ -66,3 +67,9 @@ def main_menu_input():
 
 if __name__ == '__main__':
     pass
+    # sys.path.append('C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python313\\python312.zip')
+    # sys.path.append('C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python313\\DLLs')
+    # sys.path.append('C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python313\\Lib')
+    # sys.path.append('C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python313')
+    # sys.path.append('C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages')
+    # print(sys.path)
