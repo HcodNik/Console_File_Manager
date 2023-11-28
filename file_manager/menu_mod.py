@@ -5,7 +5,6 @@ import quiz.victory
 import bank_account.score
 
 
-
 def sim_multi(sim, value):  # функция символы
     sim_multi = sim * value
     return print(sim_multi)
