@@ -21,12 +21,20 @@ def ch_dir():  # смена рабочей директории
 
 def add_folder():  # создать каталог в тек. директории
     name_fold = input('Введите имя каталога: ')
-    while name_fold in view_folder_only():
-        print('Папка с таким именем уже существует!')
-        break
-    else:
-        print(f'Папка "{name_fold}" успешно создана!')
-        return os.mkdir(name_fold)
+    try:
+        if name_fold in view_folder_only():
+            print('Папка с таким именем уже существует!')
+        elif name_fold == '':
+            print('Вы не указали имя папки!')
+            add_folder()
+        elif os.error(22):
+            print('Синтаксическая ошибка в имени папки!')
+            add_folder()
+        else:
+            print(f'Папка "{name_fold}" успешно создана!')
+            return os.mkdir(name_fold)
+    except:
+        return print(f'Произошла ошибка {sys.exc_info()}')
 
 
 def view_file_only():  # посмотреть ТОЛЬКО файлы текущей директории
