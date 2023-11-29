@@ -26,12 +26,13 @@ def main_menu_print():
     print('11. Смена рабочей директории')
     print('12. Главное меню')
     print('13. Выход')
+    print('**  введите соответствующий номер пункта меню...')
     sim_multi('#', 50)
 
 
 def main_menu_input():
     global menu_num
-    menu_num = input(f'\n{os.getcwd()}> ')
+    menu_num = input(f'\nFM {os.getcwd()}> ')
     if menu_num == '1':
         add_folder()
     elif menu_num == '2':
