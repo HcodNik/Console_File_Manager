@@ -27,9 +27,8 @@ def add_folder():  # создать каталог в тек. директори
         elif name_fold == '':
             print('Вы не указали имя папки!')
             add_folder()
-        elif os.error(22):
-            print('Синтаксическая ошибка в имени папки!')
-            add_folder()
+        elif os.error == 22:
+            print('Синтаксическая ошибка в имени папки')
         else:
             print(f'Папка "{name_fold}" успешно создана!')
             return os.mkdir(name_fold)
