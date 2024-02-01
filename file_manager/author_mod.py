@@ -7,4 +7,4 @@ def author():  # создатель программы
 
 
 if __name__ == '__main__':
-    pass
+    author()

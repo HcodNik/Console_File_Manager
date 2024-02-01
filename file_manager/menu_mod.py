@@ -7,12 +7,12 @@ import bank_account.score
 
 def sim_multi(sim, value):  # функция символы
     sim_multi = sim * value
-    return print(sim_multi)
+    return sim_multi
 
 
 def main_menu_print():
     print("\033[3m\033[33m\033[41m{}\033[0m".format("Файловый менеджер вер. 1.0"))
-    sim_multi('#', 50)
+    print(sim_multi('=', 50))
     print('1. Создать папку')
     print('2. Удалить (файл/папку)')
     print('3. Копировать (файл/папку)')
@@ -27,7 +27,7 @@ def main_menu_print():
     print('12. Главное меню')
     print('13. Выход')
     print('**  введите соответствующий номер пункта меню...')
-    sim_multi('#', 50)
+    print(sim_multi('=', 50))
 
 
 def main_menu_input():
