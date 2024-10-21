@@ -1,5 +1,5 @@
 import random
-import file_manager.menu_mod
+import menu_mod
 
 
 def victory():
@@ -47,6 +47,6 @@ def victory():
 
     print(f'Правильных ответов: {catch0} ({int(catch0 * 100 / 5)}%)')
     print(f'Неправильных ответов: {catch1} ({int(catch1 * 100 / 5)}%)')
-    return file_manager.menu_mod.main_menu_input()
+    return menu_mod.main_menu_input()
 
 

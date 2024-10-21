@@ -1,8 +1,8 @@
-from file_manager.os_mod import *
-from file_manager.author_mod import author
-from file_manager.sysinfo_mod import sys_info
-import quiz.victory
-import bank_account.score
+from os_mod import *
+from author_mod import author
+from sysinfo_mod import sys_info
+import victory
+import score
 
 
 def sim_multi(sim, value):  # функция символы
@@ -50,9 +50,9 @@ def main_menu_input():
     elif menu_num == '8':
         author()
     elif menu_num == '9':
-        quiz.victory.victory()
+        victory.victory()
     elif menu_num == '10':
-        bank_account.score.score_func()
+        score.score_func()
     elif menu_num == '11':
         ch_dir()
     elif menu_num == '12':

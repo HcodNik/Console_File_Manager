@@ -1,4 +1,4 @@
-from file_manager.menu_mod import sim_multi
+from menu_mod import sim_multi
 
 
 def test_sim_multi():

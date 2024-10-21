@@ -1,4 +1,5 @@
-from file_manager.menu_mod import main_menu_print, main_menu_input
+import menu_mod 
+from menu_mod import *
 
 # ФАЙЛОВЫЙ МЕНЕДЖЕР - ЗАПУСК!!!
 
