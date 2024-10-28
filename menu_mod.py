@@ -46,7 +46,7 @@ def main_menu_input():
     elif menu_num == '6':
         print(',\n'.join(view_file_only()))
     elif menu_num == '7':
-        sys_info()
+        print(sys_info())
     elif menu_num == '8':
         author()
     elif menu_num == '9':
@@ -66,10 +66,8 @@ def main_menu_input():
 
 
 if __name__ == '__main__':
-    pass
-    # sys.path.append('C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python313\\python312.zip')
-    # sys.path.append('C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python313\\DLLs')
-    # sys.path.append('C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python313\\Lib')
-    # sys.path.append('C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python313')
-    # sys.path.append('C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages')
-    # print(sys.path)
+    print(sim_multi(0,5))
+    print(sim_multi(2, 5))
+    print(sim_multi('=', 5))
+    print(sim_multi(None, 5))
+

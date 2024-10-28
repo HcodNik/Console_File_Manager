@@ -3,12 +3,12 @@ import platform
 
 def sys_info():  # информация о системе
     os_info = platform.uname()
-    print(f"""
+    return f"""
     Операционная система: {os_info.system} {os_info.release}
     Сборка ОС: {os_info.version}")
     Имя устройства: {os_info.node}")
     Архитектура: {','.join(platform.architecture())}")
-    Процессор: {platform.processor()}""")
+    Процессор: {platform.processor()}"""
 
 if __name__ == '__main__':
-    sys_info()
+    print(sys_info())

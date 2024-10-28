@@ -92,10 +92,4 @@ def copy_():  # КОПИРОВАТЬ ФАЙЛ/ПАПКУ
 if __name__ == '__main__':
     pass
 
-    # print(os.getcwd())  # метод сообщает нам местоположение текущего рабочего каталога (CWD - Current working directory)
-    # print(os.listdir(os.getcwd()))  # список всех файлов и каталогов в указанном каталоге, по умолчанию это текущий каталог
-    # print(os.path.isfile(os.getcwd())) # проверяет, файл ли это
-    # print(os.path.isdir(os.getcwd())) # проверяет, папка ли это
-    # print(os.path.exists(os.getcwd())) # проверяет, существует ли указанный путь
-    # print(f'Содержимое директории: {current_dir}\n', ',\n'.join(list_dir()))
-    # print(os.path.basename(current_dir)) # конечная рабочая папка
+
