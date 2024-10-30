@@ -1,9 +1,11 @@
 from os_mod import *
 from author_mod import author
 from sysinfo_mod import sys_info
-import victory
 import score
 
+def custom_execfile(filepath, globals=None, locals=None):
+    with open(filepath, 'rb') as file:
+        exec(compile(file.read(), filepath, 'exec'), globals, locals)
 
 def sim_multi(sim, value):  # функция символы
     sim_multi = sim * value
@@ -21,7 +23,7 @@ def main_menu_print():
     print('6. Посмотреть только файлы')
     print('7. Просмотр информации об операционной системе')
     print('8. Создатель программы')
-    print('9. Играть в викторину')
+    print('9. Играть в игру "ВИКТОРИНА"')
     print('10. Мой банковский счет')
     print('11. Смена рабочей директории')
     print('12. Главное меню')
@@ -50,7 +52,7 @@ def main_menu_input():
     elif menu_num == '8':
         author()
     elif menu_num == '9':
-        victory.victory()
+        custom_execfile('victory.py')
     elif menu_num == '10':
         score.score_func()
     elif menu_num == '11':
@@ -66,8 +68,5 @@ def main_menu_input():
 
 
 if __name__ == '__main__':
-    print(sim_multi(0,5))
-    print(sim_multi(2, 5))
-    print(sim_multi('=', 5))
-    print(sim_multi(None, 5))
-
+    main_menu_print()
+    main_menu_input()
