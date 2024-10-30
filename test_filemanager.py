@@ -1,4 +1,4 @@
-import pytest, victory
+import pytest
 from menu_mod import *
 
 
@@ -14,3 +14,5 @@ def test_sim_multi_TypeError():
     with pytest.raises(TypeError):
         sim_multi(None, 3)
         sim_multi('Max', 'Max')
+
+
