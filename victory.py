@@ -95,4 +95,5 @@ def calc_the_percentage(total_quantity, correct_quantity):
 
 print(f'Правильных ответов: {calc_the_percentage(len(person_birtday_random), count)} %')
 print(f'Неправильных ответов: {100 - calc_the_percentage(len(person_birtday_random), count)} %')
+menu_mod.main_menu_print()
 menu_mod.main_menu_input()
