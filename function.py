@@ -1,8 +1,14 @@
-import sys
-import os
-import shutil
+import sys, os, shutil, platform
 
-menu_num = ''  # ГЛОБАЛЬНАЯ...текущий каталог
+
+def custom_execfile(filepath, globals=None, locals=None):
+    with open(filepath, 'rb') as file:
+        exec(compile(file.read(), filepath, 'exec'), globals, locals)
+
+
+def sim_multi(sim, value):  # функция символы
+    sim_multi = sim * value
+    return sim_multi
 
 
 def list_dir():  # просмотр содержимого рабочей директории списком
@@ -89,7 +95,19 @@ def copy_():  # КОПИРОВАТЬ ФАЙЛ/ПАПКУ
         return print('Файл/папка с таким именем не найдена!')
 
 
-if __name__ == '__main__':
-    pass
+def author():  # создатель программы
+    author_info = {'Author': 'Brychikhin Nick',
+                   'e-mail': 'bruk99@yandex.ru'}
+    result = list(author_info.items())
+    for key, value in result:
+        print(f'{key}: {value}')
 
 
+def sys_info():  # информация о системе
+    os_info = platform.uname()
+    return f"""
+    Операционная система: {os_info.system} {os_info.release}
+    Сборка ОС: {os_info.version}")
+    Имя устройства: {os_info.node}")
+    Архитектура: {','.join(platform.architecture())}")
+    Процессор: {platform.processor()}"""
