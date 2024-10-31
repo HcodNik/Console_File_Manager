@@ -1,5 +1,5 @@
 import pytest
-from function import sim_multi
+from function import *
 
 
 @pytest.mark.parametrize("sim, val, res", [('=', 5, '====='),
