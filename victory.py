@@ -1,99 +1,34 @@
 import random
+from function import *
 
+if __name__ == '__main__':
+    print('Игра "ВИКТОРИНА"\n')
 
+    person_birtday = {
+        'Александр Пушкин': '06.06.1799',
+        'Альберт Эйнштейн': '14.03.1879',
+        'Никола Тесла': '10.07.1856',
+        'Алан Тьюринг': '23.06.1912',
+        'Стив Джобс': '24.02.1955',
+        'Джефф Безос': '12.01.1964',
+        'Билл Гейтс': '28.10.1955',
+        'Уоррен Баффет': '30.08.1930',
+        'Владимир Путин': '07.10.1952',
+        'Джозеф Байден-младший': '20.11.1942',
+        'Дональд Трамп': '14.06.1946'}
 
+    person_birtday_random = random.sample(list(person_birtday.items()), 5)
 
-print('Игра "ВИКТОРИНА"\n')
+    count = 0  # счётчик верных ответов
 
-person_birtday = {
-    'Александр Пушкин': '06.06.1799',
-    'Альберт Эйнштейн': '14.03.1879',
-    'Никола Тесла': '10.07.1856',
-    'Алан Тьюринг': '23.06.1912',
-    'Стив Джобс': '24.02.1955',
-    'Джефф Безос': '12.01.1964',
-    'Билл Гейтс': '28.10.1955',
-    'Уоррен Баффет': '30.08.1930',
-    'Владимир Путин': '07.10.1952',
-    'Джозеф Байден-младший': '20.11.1942',
-    'Дональд Трамп': '14.06.1946'}
+    for i in range(len(person_birtday_random)):
+        user_response = input(person_birtday_random[i][0] + ' - укажите дату рождения (DD.MM.YYYY): ')
+        data_string_in_data_word(user_response)
+        if data_string_in_data_word(user_response) == 0:
+            print(f'Неверно! Верный ответ - {data_string_in_data_word(person_birtday_random[i][1])}')
+        else:
+            count += 1
+            print('Верно!')
 
-person_birtday_random = random.sample(list(person_birtday.items()), 5)
-
-
-def data_string_in_data_word(data_string):
-    day_list = {'01': 'первое',
-                '02': 'второе',
-                '03': 'третье',
-                '04': 'четвёртое',
-                '05': 'пятое',
-                '06': 'шестое',
-                '07': 'седьмое',
-                '08': 'восьмое',
-                '09': 'девятое',
-                '10': 'десятое',
-                '11': 'одиннадцатое',
-                '12': 'двенадцатое',
-                '13': 'тринадцатое',
-                '14': 'четырнадцатое',
-                '15': 'пятнадцатое',
-                '16': 'шестнадцатое',
-                '17': 'семнадцатое',
-                '18': 'восемнадцатое',
-                '19': 'девятнадцатое',
-                '20': 'двадцатое',
-                '21': 'двадцать первое',
-                '22': 'двадцать второе',
-                '23': 'двадцать третье',
-                '24': 'двадацать четвёртое',
-                '25': 'двадцать пятое',
-                '26': 'двадцать шестое',
-                '27': 'двадцать седьмое',
-                '28': 'двадцать восьмое',
-                '29': 'двадцать девятое',
-                '30': 'тридцатое',
-                '31': 'тридцать первое'}
-
-    month_list = {'01': 'января',
-                  '02': 'февраля',
-                  '03': 'марта',
-                  '04': 'апреля',
-                  '05': 'мая',
-                  '06': 'июня',
-                  '07': 'июля',
-                  '08': 'августа',
-                  '09': 'сентября',
-                  '10': 'октября',
-                  '11': 'ноября',
-                  '12': 'декабря'}
-    try:
-        # Разбиваем строку с датой через точку и закатываем в список
-        data_in_list = data_string.split('.')
-        # Берём значение по ключу из каждого словаря и отправляем на выход
-        data_in_word = f'{day_list[data_in_list[0]]} {month_list[data_in_list[1]]} {data_in_list[2]}'
-        return data_in_word
-    except:
-        return 0
-
-
-count = 0  # счётчик верных ответов
-
-for i in range(len(person_birtday_random)):
-    user_response = input(person_birtday_random[i][0] + ' - укажите дату рождения (DD.MM.YYYY): ')
-    data_string_in_data_word(user_response)
-    if data_string_in_data_word(user_response) == 0:
-        print(f'Неверно! Верный ответ - {data_string_in_data_word(person_birtday_random[i][1])}')
-    else:
-        count += 1
-        print('Верно!')
-
-
-# Функция вычисления процентов
-def calc_the_percentage(total_quantity, correct_quantity):
-    result = correct_quantity * 100 / total_quantity
-    return result
-
-
-print(f'Правильных ответов: {calc_the_percentage(len(person_birtday_random), count)} %')
-print(f'Неправильных ответов: {100 - calc_the_percentage(len(person_birtday_random), count)} %')
-
+    print(f'Правильных ответов: {calc_the_percentage(len(person_birtday_random), count)} %')
+    print(f'Неправильных ответов: {100 - calc_the_percentage(len(person_birtday_random), count)} %')
