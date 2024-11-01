@@ -3,6 +3,7 @@ from function import *
 from victory import data_string_in_data_word
 
 
+
 @pytest.mark.parametrize("sim, val, res", [('=', 5, '====='),
                                            (0, 5, 0),
                                            (2, 5, 10),
@@ -35,6 +36,7 @@ def test_data_string_in_data_word(data_string, res):
 def test_calc_the_percentage(total, correct, res):
     assert calc_the_percentage(total, correct) == res
 
+
 def test_calc_the_percentage_TypeError():
     with pytest.raises(TypeError):
         calc_the_percentage(None, None)
@@ -42,3 +44,4 @@ def test_calc_the_percentage_TypeError():
         calc_the_percentage('str', 100)
         calc_the_percentage(0, 100)
         calc_the_percentage(-1, 100)
+

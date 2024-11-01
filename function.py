@@ -112,10 +112,12 @@ def sys_info():  # информация о системе
     Архитектура: {','.join(platform.architecture())}")
     Процессор: {platform.processor()}"""
 
+
 # Функция вычисления процентов
 def calc_the_percentage(total_quantity, correct_quantity):
     result = correct_quantity * 100 / total_quantity
     return result
+
 
 # Функция преобразования даты из формата 10.10.1999 в десятое октября 1999
 def data_string_in_data_word(data_string):
@@ -171,5 +173,6 @@ def data_string_in_data_word(data_string):
         return data_in_word
     except:
         return 0
+
 
 
