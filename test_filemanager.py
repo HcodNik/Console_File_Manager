@@ -1,4 +1,4 @@
-import pytest
+import pytest, os
 from function import *
 from victory import data_string_in_data_word
 
@@ -44,4 +44,5 @@ def test_calc_the_percentage_TypeError():
         calc_the_percentage('str', 100)
         calc_the_percentage(0, 100)
         calc_the_percentage(-1, 100)
+
 

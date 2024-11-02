@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
 
 def main_menu_input():
-    input_menu_item = input(f'\nPS {os.getcwd()}> ')
+    input_menu_item=input(f'\nPS {os.getcwd()}> ')
     if input_menu_item.isdigit() == False or eval(input_menu_item) not in range(0, 13):
         print('Некорректный ввод! Введите цифру от 0 до 12...')
         return main_menu_input()
