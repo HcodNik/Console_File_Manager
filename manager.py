@@ -1,5 +1,6 @@
 from function import *
 from score import score_func
+from victory import victory
 
 if __name__ == '__main__':
     main_menu = f"""
@@ -49,7 +50,7 @@ def main_menu_input():
         case 8:
             author()
         case 9:
-            custom_execfile('victory.py')
+            victory()
         case 10:
             score_func()
         case 11:

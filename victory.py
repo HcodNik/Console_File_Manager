@@ -1,7 +1,7 @@
 import random
 from function import *
 
-if __name__ == '__main__':
+def victory():
     print('Игра "ВИКТОРИНА"\n')
 
     person_birtday = {
