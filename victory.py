@@ -1,9 +1,10 @@
 import random
-import menu_mod
-
+from function import *
 
 def victory():
-    birtday = {
+    print('Игра "ВИКТОРИНА"\n')
+
+    person_birtday = {
         'Александр Пушкин': '06.06.1799',
         'Альберт Эйнштейн': '14.03.1879',
         'Никола Тесла': '10.07.1856',
@@ -14,39 +15,20 @@ def victory():
         'Уоррен Баффет': '30.08.1930',
         'Владимир Путин': '07.10.1952',
         'Джозеф Байден-младший': '20.11.1942',
-    }
+        'Дональд Трамп': '14.06.1946'}
 
-    day_list = ['первое', 'второе', 'третье', 'четвёртое',
-                'пятое', 'шестое', 'седьмое', 'восьмое',
-                'девятое', 'десятое', 'одиннадцатое', 'двенадцатое',
-                'тринадцатое', 'четырнадцатое', 'пятнадцатое', 'шестнадцатое',
-                'семнадцатое', 'восемнадцатое', 'девятнадцатое', 'двадцатое',
-                'двадцать первое', 'двадцать второе', 'двадцать третье',
-                'двадацать четвёртое', 'двадцать пятое', 'двадцать шестое',
-                'двадцать седьмое', 'двадцать восьмое', 'двадцать девятое',
-                'тридцатое', 'тридцать первое']
+    person_birtday_random = random.sample(list(person_birtday.items()), 5)
 
-    month_list = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
-                  'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
-    catch0 = 0  # счётчик правильных ответов
-    catch1 = 0  # счётчик неправильных ответов
+    count = 0  # счётчик верных ответов
 
-    quest_items = random.sample(list(birtday.items()), 5)
-
-    for i in range(len(quest_items)):
-        quest_user = input(f'{''.join(quest_items[i][0])} - укажите дату рождения в формате dd.mm.yyyy: ')
-        if quest_items[i][1] == quest_user:
-            catch0 += 1
-            print('Верно!')
+    for i in range(len(person_birtday_random)):
+        user_response = input(person_birtday_random[i][0] + ' - укажите дату рождения (DD.MM.YYYY): ')
+        data_string_in_data_word(user_response)
+        if data_string_in_data_word(user_response) == 0:
+            print(f'Неверно! Верный ответ - {data_string_in_data_word(person_birtday_random[i][1])}')
         else:
-            catch1 += 1
-            cor_answ = quest_items[i][1].split('.')  # превращаем правильный ответ в список
-            cor_answ = (f'Неверно! '
-                        f'Правильный ответ: {day_list[int(cor_answ[0]) - 1]} {month_list[int(cor_answ[1]) - 1]} {cor_answ[2]} года')
-            print(cor_answ)
+            count += 1
+            print('Верно!')
 
-    print(f'Правильных ответов: {catch0} ({int(catch0 * 100 / 5)}%)')
-    print(f'Неправильных ответов: {catch1} ({int(catch1 * 100 / 5)}%)')
-    return menu_mod.main_menu_input()
-
-
+    print(f'Правильных ответов: {calc_the_percentage(len(person_birtday_random), count)} %')
+    print(f'Неправильных ответов: {100 - calc_the_percentage(len(person_birtday_random), count)} %')

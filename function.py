@@ -1,8 +1,14 @@
-import sys
-import os
-import shutil
+import sys, os, shutil, platform
 
-menu_num = ''  # ГЛОБАЛЬНАЯ...текущий каталог
+
+def custom_execfile(filepath, globals=None, locals=None):
+    with open(filepath, 'rb') as file:
+        exec(compile(file.read(), filepath, 'exec'), globals, locals)
+
+
+def sim_multi(sim, value):  # функция символы
+    sim_multi = sim * value
+    return sim_multi
 
 
 def list_dir():  # просмотр содержимого рабочей директории списком
@@ -89,13 +95,84 @@ def copy_():  # КОПИРОВАТЬ ФАЙЛ/ПАПКУ
         return print('Файл/папка с таким именем не найдена!')
 
 
-if __name__ == '__main__':
-    pass
+def author():  # создатель программы
+    author_info = {'Author': 'Brychikhin Nick',
+                   'e-mail': 'bruk99@yandex.ru'}
+    result = list(author_info.items())
+    for key, value in result:
+        print(f'{key}: {value}')
 
-    # print(os.getcwd())  # метод сообщает нам местоположение текущего рабочего каталога (CWD - Current working directory)
-    # print(os.listdir(os.getcwd()))  # список всех файлов и каталогов в указанном каталоге, по умолчанию это текущий каталог
-    # print(os.path.isfile(os.getcwd())) # проверяет, файл ли это
-    # print(os.path.isdir(os.getcwd())) # проверяет, папка ли это
-    # print(os.path.exists(os.getcwd())) # проверяет, существует ли указанный путь
-    # print(f'Содержимое директории: {current_dir}\n', ',\n'.join(list_dir()))
-    # print(os.path.basename(current_dir)) # конечная рабочая папка
+
+def sys_info():  # информация о системе
+    os_info = platform.uname()
+    return f"""
+    Операционная система: {os_info.system} {os_info.release}
+    Сборка ОС: {os_info.version}")
+    Имя устройства: {os_info.node}")
+    Архитектура: {','.join(platform.architecture())}")
+    Процессор: {platform.processor()}"""
+
+
+# Функция вычисления процентов
+def calc_the_percentage(total_quantity, correct_quantity):
+    result = correct_quantity * 100 / total_quantity
+    return result
+
+
+# Функция преобразования даты из формата 10.10.1999 в десятое октября 1999
+def data_string_in_data_word(data_string):
+    day_list = {'01': 'первое',
+                '02': 'второе',
+                '03': 'третье',
+                '04': 'четвёртое',
+                '05': 'пятое',
+                '06': 'шестое',
+                '07': 'седьмое',
+                '08': 'восьмое',
+                '09': 'девятое',
+                '10': 'десятое',
+                '11': 'одиннадцатое',
+                '12': 'двенадцатое',
+                '13': 'тринадцатое',
+                '14': 'четырнадцатое',
+                '15': 'пятнадцатое',
+                '16': 'шестнадцатое',
+                '17': 'семнадцатое',
+                '18': 'восемнадцатое',
+                '19': 'девятнадцатое',
+                '20': 'двадцатое',
+                '21': 'двадцать первое',
+                '22': 'двадцать второе',
+                '23': 'двадцать третье',
+                '24': 'двадацать четвёртое',
+                '25': 'двадцать пятое',
+                '26': 'двадцать шестое',
+                '27': 'двадцать седьмое',
+                '28': 'двадцать восьмое',
+                '29': 'двадцать девятое',
+                '30': 'тридцатое',
+                '31': 'тридцать первое'}
+
+    month_list = {'01': 'января',
+                  '02': 'февраля',
+                  '03': 'марта',
+                  '04': 'апреля',
+                  '05': 'мая',
+                  '06': 'июня',
+                  '07': 'июля',
+                  '08': 'августа',
+                  '09': 'сентября',
+                  '10': 'октября',
+                  '11': 'ноября',
+                  '12': 'декабря'}
+    try:
+        # Разбиваем строку с датой через точку и закатываем в список
+        data_in_list = data_string.split('.')
+        # Берём значение по ключу из каждого словаря и отправляем на выход
+        data_in_word = f'{day_list[data_in_list[0]]} {month_list[data_in_list[1]]} {data_in_list[2]}'
+        return data_in_word
+    except:
+        return 0
+
+
+
